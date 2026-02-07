@@ -1,0 +1,115 @@
+/* idea-form.component.scss */
+
+.idea-form-container {
+  max-width: 600px; /* larghezza massima del contenitore */
+  margin: 0 auto; /* centra il contenitore */
+  padding: 20px; /* padding interno */
+
+  .title-box {
+    background-color: #2D764B; /* colore di sfondo verde più scuro */
+    color: white; /* colore del testo bianco */
+    padding: 10px 20px; /* padding interno */
+    border-radius: 5px; /* bordi arrotondati */
+    margin-bottom: 20px; /* margine inferiore */
+    text-align: center; /* allinea il testo al centro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ombra leggera */
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-group {
+      width: 100%; /* larghezza piena */
+      margin-bottom: 20px; /* margine inferiore */
+      text-align: center; /* centra il testo */
+
+      label {
+        display: block;
+        margin-bottom: 5px; /* margine inferiore per il label */
+        font-weight: bold; /* testo in grassetto per il label */
+        font-size: 1.5em; /* dimensione del font maggiore */
+        color: #2D764B; /* colore del testo */
+      }
+
+      input {
+        width: 100%; /* larghezza piena */
+        padding: 10px; /* padding interno */
+        border: 1px solid #ddd; /* bordo sottile */
+        border-radius: 5px; /* bordi arrotondati */
+        box-sizing: border-box; /* include il padding e il bordo nella larghezza totale */
+        font-weight: bold; /* testo in grassetto */
+        font-size: 1.2em; /* dimensione del font maggiore */
+        text-align: center; /* centra il testo */
+      }
+    }
+
+    .editor-container {
+      width: 100%; /* larghezza piena */
+      max-width: 100%; /* larghezza massima */
+      border: 1px solid #ddd; /* bordo sottile */
+      border-radius: 5px; /* bordi arrotondati */
+      margin-bottom: 20px; /* margine inferiore */
+      text-align: center; /* centra il testo */
+
+      label {
+        display: block;
+        margin-bottom: 5px; /* margine inferiore per il label */
+        font-weight: bold; /* testo in grassetto per il label */
+        font-size: 1.5em; /* dimensione del font maggiore */
+        color: #2D764B; /* colore del testo */
+      }
+
+      ckeditor {
+        width: 100%; /* larghezza piena */
+      }
+    }
+
+    .submit-button {
+      background-color: #2D764B; /* colore di sfondo verde più scuro */
+      color: white; /* colore del testo bianco */
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* transizione colore di sfondo */
+      border-radius: 5px; /* bordi arrotondati */
+      width: 200px; /* larghezza fissa */
+      max-width: 100%; /* larghezza massima */
+    }
+
+    .submit-button:hover {
+      background-color: #205A3F; /* colore di sfondo verde scuro al passaggio del mouse */
+    }
+
+    /* Aggiunte per gestire l'alert */
+    .alert {
+      background-color: #F8D7DA; /* colore di sfondo rosso chiaro */
+      color: #721C24; /* colore del testo rosso scuro */
+      padding: 10px;
+      border: 1px solid #F5C6CB; /* bordo rosso chiaro */
+      border-radius: 5px; /* bordi arrotondati */
+      margin-bottom: 10px; /* margine inferiore */
+      text-align: center; /* centra il testo */
+    }
+    .closethis {
+      background-color: white; /* Sfondo bianco */
+      color: #2D764B; /* Testo verde scuro */
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px; /* Bordi arrotondati */
+      transition: background-color 0.3s ease; /* Transizione del colore di sfondo */
+      margin-left: 10px; /* Margine a sinistra */
+    }
+  
+    .closethis:hover {
+      background-color: #f0f0f0; /* Sfondo leggermente grigio al passaggio del mouse */
+    }
+  }
+}
+
+::selection {
+  background-color: #2D764B; /* Sfondo verde */
+  color: white; /* Testo bianco */
+}

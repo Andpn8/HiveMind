@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="idea-form-container">
+  <div class="title-box">
+    <h2>Rendi pubblica la tua idea!</h2>
+  </div>
+  <!-- Aggiungiamo un riferimento al form con #ideaForm -->
+  <form #ideaForm="ngForm" (ngSubmit)="onSubmit(ideaForm)">
+    <div class="form-group">
+      <label for="title">Titolo</label>
+      <!-- Utilizziamo ngModel per legare l'input al valore di ideaTitle -->
+      <input id="title" type="text" [(ngModel)]="ideaTitle" name="title" required />
+      <!-- Aggiungiamo una condizione *ngIf per mostrare l'avviso -->
+      <div *ngIf="ideaForm.controls['title']?.invalid && (ideaForm.controls['title']?.dirty || ideaForm.controls['title']?.touched)" class="alert">
+        Inserisci il titolo.
+      </div>
+    </div>
+    <div class="editor-container">
+      <label for="description">Descrizione</label>
+      <ckeditor
+        [editor]="Editor"
+        [config]="editorConfig"
+        [(ngModel)]="ideaDescription"
+        name="description"
+      ></ckeditor>
+      <div class="character-counter">
+        {{ ideaDescription.length }} / {{ maxCharacters }}
+      </div>
+      <div class="alert" *ngIf="showAlert">
+        La descrizione non può superare i {{ maxCharacters }} caratteri (HTML Incluso).
+        <button type="button" class="closethis" (click)="onHideAlert()">Chiudi</button>
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Invia</button>
+  </form>
+</div>

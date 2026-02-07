@@ -1,0 +1,91 @@
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Larghezza massima del contenitore */
+    margin: auto; /* Centra il contenitore */
+    padding: 20px;
+    background-color: #ffffff; /* Sfondo bianco */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    margin-top: 50px; /* Altezza di spazio dalla parte superiore */
+  
+    .login-error {
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center; /* Allinea il testo al centro */
+      margin-bottom: 20px; /* Spazio inferiore per separare il messaggio di errore dal form */
+    }
+  
+    h2 {
+      text-align: center;
+      color: #2D764B; /* Verde per l'intestazione */
+      margin-bottom: 20px; /* Spazio inferiore tra l'intestazione e il form */
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra gli elementi del form verticalmente */
+  
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+  
+        label {
+          color: #2D764B; /* Verde per il testo del label */
+          font-weight: bold; /* Testo in grassetto */
+          margin-bottom: 5px; /* Spazio inferiore tra il label e l'input */
+        }
+  
+        input {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+  
+        .error-message {
+          color: #ff6347; /* Colore rosso/arancione per il messaggio di errore */
+          font-size: 14px;
+          margin-top: 5px;
+        }
+      }
+  
+      button {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #2D764B; /* Verde per il pulsante */
+        color: #ffffff; /* Testo bianco */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px; /* Spazio superiore per separare il pulsante dagli input */
+        text-align: center;
+        margin-left: 17px; /* Sposta il pulsante leggermente a destra */
+  
+        &:hover {
+          background-color: #245F3A; /* Verde più scuro al passaggio del mouse */
+        }
+  
+        &:disabled {
+          background-color: #ccc; /* Colore grigio per il pulsante disabilitato */
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  ::selection {
+    background-color: #2D764B; /* Sfondo verde */
+    color: white; /* Testo bianco */
+  }
+  

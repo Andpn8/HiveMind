@@ -1,0 +1,39 @@
+.footer {
+    background-color: #2D764B;
+    color: #ffffff;
+    padding: 20px 0;
+    width: 100%;
+    height: 7%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-text p {
+    margin: 0;
+    font-size: 14px; /* Modifica la dimensione del testo */
+    text-align: center; /* Centra il testo */
+  }
+  
+  .footer-text strong {
+    font-weight: bold; /* Rende il testo bold */
+  }
+  
+  ::selection {
+    background-color: #ffffff; /* Sfondo bianco */
+    color: rgb(0, 0, 0); /* Testo nero */
+  }
+
+  

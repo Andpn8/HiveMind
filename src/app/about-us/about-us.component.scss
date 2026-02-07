@@ -1,0 +1,30 @@
+.about-us-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .about-us-content {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us-content h2 {
+    color: #2d764b;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  ::selection {
+    background-color: #2D764B; /* Sfondo verde */
+    color: white; /* Testo bianco */
+  }
+  

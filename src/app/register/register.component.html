@@ -1,0 +1,44 @@
+  <div class="register-container">
+    <div *ngIf="showErrorMessage" class="registration-error">
+      <p>Errore durante la registrazione:</p>
+      <p>{{ errorMessage }}</p>
+    </div>
+      <h2>Registrazione</h2>
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+        <div class="input-container">
+          <label for="username">Username *</label>
+          <input type="text" [(ngModel)]="username" id="username" name="username" required #usernameInput="ngModel" placeholder="Esempio : AndreaP02">
+          <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)"
+              class="error-message">
+            Username obbligatorio
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="password">Password *</label>
+          <input type="password" [(ngModel)]="password" id="password" name="password" required #passwordInput="ngModel" placeholder="Esempio : Fiat.#01">
+          <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)"
+              class="error-message">
+            Password obbligatoria
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="email">Email</label>
+          <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Esempio : andrea@example.com">
+        </div>
+        <button type="submit" [disabled]="registerForm.invalid">Registrati</button>
+      </form>
+    </div>
+    
+    
+    <div class="specification">
+      <div class="container">
+        <div class="specification-content">
+          <div class="specification-text">
+            <p><strong>* CAMPI OBBLIGATORI</strong></p>
+            <p>Ricorda che ogni <strong>username</strong> è unico e <u><strong>non può essere cambiato!</strong></u></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+    

@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div *ngIf="showErrorMessage" class="login-error">
+    <p>{{ errorMessage }}</p>
+  </div>
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="input-container">
+      <label for="username">Username</label>
+      <input type="text" [(ngModel)]="username" id="username" name="username" required #usernameInput="ngModel" placeholder="Il tuo Username">
+      <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="error-message">
+        Username obbligatorio
+      </div>
+    </div>
+    <div class="input-container">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="password" id="password" name="password" required #passwordInput="ngModel" placeholder="La tua Password">
+      <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+        Password obbligatoria
+      </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Accedi</button>
+  </form>
+</div>
+<app-footer></app-footer>

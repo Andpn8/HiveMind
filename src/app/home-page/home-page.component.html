@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class="home-page-container">
+  <div class="published-alert" *ngIf="showPublishedMessage">
+    Idea pubblicata!
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  
+
+  <h1>HiveMind</h1>
+  <div class="image-container">
+    <img src="https://i.ibb.co/QQfBXVk/Hive-Mind-LOGO-removebg-preview.png" height="100">
+  </div>
+  <div class="discreet-info">
+    <small>
+      *Il voto è unico e <u>non può essere cambiato!</u>*<br>
+      Per maggiori informazioni su HiveMind consulta la sezione About us.
+    </small>
+  </div>
+
+  <div class="filter-options">
+    <button (click)= loadIdeas() class="filter-button">Home</button>
+    <button (click)="loadFilteredIdeas('controversial')" class="filter-button">Idee Controverse</button>
+    <button (click)="loadFilteredIdeas('unpopular')" class="filter-button">Unpopular</button>
+    <button (click)="loadFilteredIdeas('mainstream')" class="filter-button">Mainstream</button>
+  </div>
+
+  <div class="ideas-container">
+    <div *ngFor="let idea of pagedIdeas">
+      <!-- Mostra le informazioni dell'idea qui -->
+      <h3>{{ idea.title }}</h3>
+      <div [innerHTML]="idea.description"></div>
+      <div class="vote-buttons">
+        <div class="vote-actions">
+          <button (click)="upvoteIdea(idea.id)" class="vote-button">Upvote</button>
+          <span class="upvote-count">{{ idea.upvotes }}</span>
+          <button (click)="downvoteIdea(idea.id)" class="vote-button">Downvote</button>
+          <span class="downvote-count">{{ idea.downvotes }}</span>
+          <span class="total-votes">Rating: {{ idea.upvotes - idea.downvotes }}</span>
+        </div>
+        <!-- Pulsante per visualizzare i commenti -->
+        <button (click)="toggleComments(idea.id)" class="comment-button">
+          {{ idea.showComments ? 'Nascondi Commenti' : 'Mostra Commenti' }}
+        </button>
+      </div>
+      <!-- Sezione commenti -->
+      <div *ngIf="idea.showComments">
+        <div class="comments-section">
+          <div *ngIf="idea.comments.length === 0">
+            <p class="advice">Nessun commento è stato ancora inviato!</p>
+          </div>
+          <div *ngFor="let comment of idea.comments">
+            <p><strong class="green-username">{{ comment.username }}</strong></p>
+            <p>{{ comment.message }}</p>
+          </div>
+        </div>
+        <!-- Form per aggiungere un commento -->
+        <form (ngSubmit)="addComment(idea.id)" *ngIf="loggedIn">
+          <input type="text" class="inputComment" [(ngModel)]="newComment" name="comment" placeholder="Scrivi un commento..." required>
+          <button type="submit" class="vote-button">Aggiungi Commento</button>
+        </form>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <!-- Paginazione -->
+  <div class="pagination">
+    <button *ngFor="let page of pages" (click)="setCurrentPage(page)">
+      {{ page }}
+    </button>
+  </div>
+</div>
